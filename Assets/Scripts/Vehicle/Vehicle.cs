@@ -2,7 +2,7 @@
 using Mirror;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class Vehicle : NetworkBehaviour
+public class Vehicle : Destructible
 {
     /// <summary>
     /// Масса для автоматической установки у ригида.

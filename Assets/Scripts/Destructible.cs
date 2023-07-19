@@ -1,8 +1,12 @@
 using Mirror;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Destructible : NetworkBehaviour
 {
+    public UnityAction<int> HitPointChange;
+
+    public int MaxHitPoint => m_MaxhitPoint;
     [SerializeField] private int m_MaxhitPoint;
 
     [SerializeField] private GameObject m_DestroySfx;
@@ -40,5 +44,6 @@ public class Destructible : NetworkBehaviour
     private void ChangeHitPoint(int oldValue, int newValue)
     {
         currentHitPoint = newValue;
+        HitPointChange?.Invoke(newValue);
     }
 }
