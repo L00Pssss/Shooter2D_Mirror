@@ -4,7 +4,7 @@ using UnityEngine;
 public class Player : NetworkBehaviour
 {
     [SerializeField] 
-    private Vehicle m_SpaceVehiclePrefab;
+    private Vehicle[] m_SpaceVehiclePrefab;
 
     public Vehicle ActiveVechicle {get;set;}
 
@@ -48,7 +48,9 @@ public class Player : NetworkBehaviour
     {
         if (ActiveVechicle != null) return;
 
-        GameObject playerVehicle = Instantiate(m_SpaceVehiclePrefab.gameObject, transform.position, Quaternion.identity);
+        GameObject vehicle = m_SpaceVehiclePrefab[Random.Range(0, 1)].gameObject;
+
+        GameObject playerVehicle = Instantiate(vehicle, transform.position, Quaternion.identity);
 
         NetworkServer.Spawn(playerVehicle, netIdentity.connectionToClient);
 

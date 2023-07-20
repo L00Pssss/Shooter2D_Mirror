@@ -49,7 +49,9 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  m_SpaceVehiclePrefab: {fileID: 3229830352732463464, guid: e7e0ad6ee4e3d7449aff67e3bcc5ddbc, type: 3}
+  m_SpaceVehiclePrefab:
+  - {fileID: 3229830352732463464, guid: e7e0ad6ee4e3d7449aff67e3bcc5ddbc, type: 3}
+  - {fileID: 28682026579972674, guid: 70a177824c5090341812e47c05e9c750, type: 3}
 --- !u!114 &5576436246106628951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79,4 +81,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbc72f1c55c324941bdaba5c8cd44c62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TargetVehicle: {fileID: 0}
