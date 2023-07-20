@@ -3,10 +3,10 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class UIHitPointSlider : MonoBehaviour
+public class VehicleHitPointSlider : MonoBehaviour
 {
     [SerializeField] 
-    private Destructible m_Destructible;
+    private Vehicle m_Vehicle;
 
     [SerializeField] 
     private Image m_FIllImage;
@@ -16,15 +16,17 @@ public class UIHitPointSlider : MonoBehaviour
 
     private void Start()
     {
-        m_Destructible.HitPointChange += OnHitPointChange;
+        m_Vehicle.HitPointChange += OnHitPointChange;
 
-        m_Slider.maxValue = m_Destructible.MaxHitPoint;
-        m_Slider.value = m_Destructible.HitPoint;
+        m_FIllImage.color = m_Vehicle.Owner.GetComponent<Player>().PlayerColor;
+
+        m_Slider.maxValue = m_Vehicle.MaxHitPoint;
+        m_Slider.value = m_Vehicle.HitPoint;
     }
 
     private void OnDestroy()
     {
-        m_Destructible.HitPointChange -= OnHitPointChange;
+        m_Vehicle.HitPointChange -= OnHitPointChange;
     }
     private void OnHitPointChange(int hitPoint)
     {

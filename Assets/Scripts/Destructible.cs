@@ -48,4 +48,7 @@ public class Destructible : NetworkBehaviour
         currentHitPoint = newValue;
         HitPointChange?.Invoke(newValue);
     }
+
+    [SyncVar]
+    public NetworkIdentity Owner;
 }

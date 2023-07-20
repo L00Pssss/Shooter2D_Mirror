@@ -191,6 +191,7 @@ MonoBehaviour:
   syncInterval: 0
   m_MaxhitPoint: 100
   m_DestroySfx: {fileID: 428229831107130820, guid: 5d8eb9eaff182944c8f63250b6e9526d, type: 3}
+  Owner: {fileID: 0}
   m_Mass: 3
   m_Thrust: 5000
   m_Mobility: 2500
@@ -229,7 +230,8 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  m_spriteRenderer: {fileID: 7044372571809288355}
+  m_SpriteRenderer: {fileID: 7044372571809288355}
+  m_Vehicle: {fileID: 3229830352732463464}
 --- !u!114 &1992617010811476889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -584,7 +586,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1157486e3d6529645908a9ad777fd05a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Destructible: {fileID: 3229830352732463464}
+  m_Vehicle: {fileID: 3229830352732463464}
   m_FIllImage: {fileID: 1462334860692746964}
   m_Slider: {fileID: 2440589110370354973}
 --- !u!1 &8973531558714023461

@@ -53,6 +53,7 @@ public class Player : NetworkBehaviour
         NetworkServer.Spawn(playerVehicle, netIdentity.connectionToClient);
 
         ActiveVechicle = playerVehicle.GetComponent<Vehicle>();
+        ActiveVechicle.Owner = netIdentity;
 
         RpcSetVehicle(ActiveVechicle.netIdentity); // передача клиенту. 
     }
