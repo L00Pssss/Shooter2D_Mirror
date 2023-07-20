@@ -7,6 +7,11 @@ public class Player : NetworkBehaviour
     private Vehicle m_SpaceVehiclePrefab;
 
     public Vehicle ActiveVechicle {get;set;}
+
+    [SyncVar]
+    private Color playerColor;
+    public Color PlayerColor => playerColor;
+
     public override void OnStartClient()
     {
         base.OnStartClient();
@@ -15,6 +20,21 @@ public class Player : NetworkBehaviour
         {
             CmdSpawnVehicle();
         }
+    }
+
+    public override void OnStartServer()
+    {
+        base.OnStartServer();
+
+        playerColor = PlayerColorPallete.Instance.TakeRandomColor();
+    }
+
+    public override void OnStopServer()
+    {
+        base.OnStopServer();
+
+        PlayerColorPallete.Instance.PutColor(playerColor);
+
     }
 
     [Command]
