@@ -188,7 +188,7 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  m_MaxhitPoint: 0
+  m_MaxhitPoint: 100
   m_DestroySfx: {fileID: 0}
   m_Mass: 3
   m_Thrust: 5000
@@ -549,7 +549,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
