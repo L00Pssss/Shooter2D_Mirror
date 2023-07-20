@@ -5,11 +5,14 @@ using UnityEngine.UI;
 
 public class UIHitPointSlider : MonoBehaviour
 {
-    [SerializeField] private Destructible m_Destructible;
+    [SerializeField] 
+    private Destructible m_Destructible;
 
-    [SerializeField] private Image m_FIllImage;
+    [SerializeField] 
+    private Image m_FIllImage;
 
-    [SerializeField] private Slider m_Slider;
+    [SerializeField] 
+    private Slider m_Slider;
 
     private void Start()
     {

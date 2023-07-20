@@ -2,10 +2,17 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    [SerializeField] private float m_MovementSpeed;
-    [SerializeField] private int m_Damage;
-    [SerializeField] private float m_LifeTime;
-    [SerializeField] private GameObject m_DestroySfx;
+    [SerializeField] 
+    private float m_MovementSpeed;
+
+    [SerializeField] 
+    private int m_Damage;
+
+    [SerializeField] 
+    private float m_LifeTime;
+
+    [SerializeField] 
+    private GameObject m_DestroySfx;
 
     private Transform m_Parent;
 

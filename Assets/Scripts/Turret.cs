@@ -3,9 +3,11 @@ using UnityEngine;
 
 public class Turret : NetworkBehaviour
 {
-    [SerializeField] private GameObject m_Projectile;
+    [SerializeField] 
+    private GameObject m_Projectile;
 
-    [SerializeField] private float m_FireRate;
+    [SerializeField] 
+    private float m_FireRate;
 
     private float currentTime;
 
@@ -28,7 +30,7 @@ public class Turret : NetworkBehaviour
     {
         if (currentTime < m_FireRate) return;
 
-        GameObject projectile = Instantiate(m_Projectile, transform.position, Quaternion.identity);
+        GameObject projectile = Instantiate(m_Projectile, transform.position, transform.rotation);
         projectile.GetComponent<Projectile>().SetParent(transform);
 
         currentTime = 0;
@@ -39,7 +41,7 @@ public class Turret : NetworkBehaviour
     [ClientRpc]
     private void RpsFire()
     {
-        GameObject projectile = Instantiate(m_Projectile, transform.position, Quaternion.identity);
+        GameObject projectile = Instantiate(m_Projectile, transform.position, transform.rotation);
         projectile.GetComponent<Projectile>().SetParent(transform);
     }
 

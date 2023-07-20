@@ -39,6 +39,8 @@ public class VehicleInput : MonoBehaviour
         if (Input.GetKey(KeyCode.RightArrow))
             torque = -1.0f;
 
+        if (Input.GetKeyDown(KeyCode.Space))
+            m_player.ActiveVechicle.Fire();
 
         m_player.ActiveVechicle.ThrustControl = thrust;
         m_player.ActiveVechicle.TorqueControl = torque;

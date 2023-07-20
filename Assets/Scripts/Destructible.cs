@@ -7,14 +7,16 @@ public class Destructible : NetworkBehaviour
     public UnityAction<int> HitPointChange;
 
     public int MaxHitPoint => m_MaxhitPoint;
-    [SerializeField] private int m_MaxhitPoint;
+    [SerializeField] 
+    private int m_MaxhitPoint;
 
-    [SerializeField] private GameObject m_DestroySfx;
+    [SerializeField] 
+    private GameObject m_DestroySfx;
 
     public int HitPoint => currentHitPoint;
     private int currentHitPoint;
 
-    [SyncVar]
+    [SyncVar(hook =nameof(ChangeHitPoint))]
     private int syncCurrentHitPoint;
 
     public override void OnStartServer()

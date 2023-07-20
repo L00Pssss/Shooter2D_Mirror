@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class Player : NetworkBehaviour
 {
-    [SerializeField] private Vehicle m_SpaceVehiclePrefab;
+    [SerializeField] 
+    private Vehicle m_SpaceVehiclePrefab;
 
     public Vehicle ActiveVechicle {get;set;}
     public override void OnStartClient()
