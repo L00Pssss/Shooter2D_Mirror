@@ -43,6 +43,7 @@ public class Projectile : MonoBehaviour
                     Instantiate(m_DestroySfx, transform.position, Quaternion.identity);                    
                 }
 
+
                 Destroy(gameObject);
             }
         }
