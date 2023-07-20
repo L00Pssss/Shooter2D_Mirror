@@ -124,10 +124,11 @@ GameObject:
   - component: {fileID: 500743478017373209}
   - component: {fileID: 8673340008205983515}
   - component: {fileID: 3229830352732463464}
+  - component: {fileID: 8576963702925279620}
+  - component: {fileID: 5780573084267050870}
   - component: {fileID: 1992617010811476889}
   - component: {fileID: 5603132466179189293}
   - component: {fileID: 2224230769485475722}
-  - component: {fileID: 5780573084267050870}
   m_Layer: 0
   m_Name: Ship
   m_TagString: Untagged
@@ -189,12 +190,45 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   m_MaxhitPoint: 100
-  m_DestroySfx: {fileID: 0}
+  m_DestroySfx: {fileID: 428229831107130820, guid: 5d8eb9eaff182944c8f63250b6e9526d, type: 3}
   m_Mass: 3
   m_Thrust: 5000
   m_Mobility: 2500
   m_MaxLinearVelocity: 30
   m_MaxAngularVelocity: 300
+--- !u!114 &8576963702925279620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2199312891278715385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e1d6f114c7261142a6aeb9dbd9ffc1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  m_Projectile: {fileID: 2126210865705208180, guid: 8b26b89ffb9cfe3469894b29ebf2e45b, type: 3}
+  m_FireRate: 0.3
+--- !u!114 &5780573084267050870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2199312891278715385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2d1825e5dfbd904b8592d541efb2e01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  m_spriteRenderer: {fileID: 7044372571809288355}
 --- !u!114 &1992617010811476889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -269,22 +303,6 @@ MonoBehaviour:
   syncAngularVelocity: 1
   clearAngularVelocity: 0
   angularVelocitySensitivity: 0.1
---- !u!114 &5780573084267050870
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2199312891278715385}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2d1825e5dfbd904b8592d541efb2e01, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncDirection: 0
-  syncMode: 0
-  syncInterval: 0
-  m_spriteRenderer: {fileID: 7044372571809288355}
 --- !u!1 &3653794271447780315
 GameObject:
   m_ObjectHideFlags: 0
