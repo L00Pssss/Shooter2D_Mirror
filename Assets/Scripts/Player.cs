@@ -48,7 +48,7 @@ public class Player : NetworkBehaviour
     {
         if (ActiveVechicle != null) return;
 
-        GameObject vehicle = m_SpaceVehiclePrefab[Random.Range(0, 1)].gameObject;
+        GameObject vehicle = m_SpaceVehiclePrefab[Random.Range(0, 2)].gameObject;
 
         GameObject playerVehicle = Instantiate(vehicle, transform.position, Quaternion.identity);
 
