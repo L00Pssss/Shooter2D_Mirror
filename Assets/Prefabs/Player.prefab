@@ -52,6 +52,9 @@ MonoBehaviour:
   m_SpaceVehiclePrefab:
   - {fileID: 3229830352732463464, guid: e7e0ad6ee4e3d7449aff67e3bcc5ddbc, type: 3}
   - {fileID: 28682026579972674, guid: 70a177824c5090341812e47c05e9c750, type: 3}
+  spawnPoints:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &5576436246106628951
 MonoBehaviour:
   m_ObjectHideFlags: 0

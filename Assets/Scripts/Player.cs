@@ -5,7 +5,8 @@ public class Player : NetworkBehaviour
 {
     [SerializeField] 
     private Vehicle[] m_SpaceVehiclePrefab;
-
+    [SerializeField]
+    public Transform[] spawnPoints; // Массив точек спавна
     public Vehicle ActiveVechicle {get;set;}
 
     [SyncVar]
@@ -25,6 +26,10 @@ public class Player : NetworkBehaviour
     public override void OnStartServer()
     {
         base.OnStartServer();
+
+        SpawnPoints spawnPoints = FindObjectOfType<SpawnPoints>();
+
+        this.spawnPoints = spawnPoints.SpawnPoint;
 
         playerColor = PlayerColorPallete.Instance.TakeRandomColor();
     }
@@ -48,16 +53,45 @@ public class Player : NetworkBehaviour
     {
         if (ActiveVechicle != null) return;
 
-        GameObject vehicle = m_SpaceVehiclePrefab[Random.Range(0, 2)].gameObject;
+        GameObject vehicle = m_SpaceVehiclePrefab[Random.Range(0, m_SpaceVehiclePrefab.Length)].gameObject;
 
-        GameObject playerVehicle = Instantiate(vehicle, transform.position, Quaternion.identity);
+        // Check if all spawn points are occupied
+        bool allSpawnPointsOccupied = true;
+        foreach (Transform spawnPoint in spawnPoints)
+        {
+            Collider2D[] colliders = Physics2D.OverlapBoxAll(spawnPoint.position, transform.localScale, LayerMask.GetMask("Ignore Raycast"));
+            if (colliders.Length == 0)
+            {
+                allSpawnPointsOccupied = false;
+                break;
+            }
+        }
 
-        NetworkServer.Spawn(playerVehicle, netIdentity.connectionToClient);
+        // If all spawn points are occupied, return without spawning the vehicle
+        if (allSpawnPointsOccupied)
+        {
+            Debug.Log("All spawn points are occupied. Cannot spawn vehicle.");
+            return;
+        }
 
-        ActiveVechicle = playerVehicle.GetComponent<Vehicle>();
-        ActiveVechicle.Owner = netIdentity;
+        // Find a free spawn point and spawn the vehicle
+        while (true)
+        {
+            Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
+            Collider2D[] colliders = Physics2D.OverlapBoxAll(spawnPoint.position, transform.localScale, LayerMask.GetMask("Ignore Raycast"));
 
-        RpcSetVehicle(ActiveVechicle.netIdentity); // передача клиенту. 
+            if (colliders.Length == 0)
+            {
+                GameObject playerVehicle = Instantiate(vehicle, spawnPoint.position, Quaternion.identity);
+                NetworkServer.Spawn(playerVehicle, netIdentity.connectionToClient);
+
+                ActiveVechicle = playerVehicle.GetComponent<Vehicle>();
+                ActiveVechicle.Owner = netIdentity;
+
+                RpcSetVehicle(ActiveVechicle.netIdentity); // передача клиенту. 
+                break;
+            }
+        }
     }
 
     [ClientRpc]
@@ -70,4 +104,7 @@ public class Player : NetworkBehaviour
             VehicleCamera.Instance.SetTarget(ActiveVechicle.transform); // передаем камеру. 
         }
     }
+
+
+
 }
