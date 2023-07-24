@@ -2490,7 +2490,7 @@ MonoBehaviour:
   m_Area: {fileID: 1898390133}
   m_SpawnMode: 1
   m_NumSpawns: 1
-  m_RespwnTime: 3
+  m_RespwnTime: 30
 --- !u!114 &1898390133
 MonoBehaviour:
   m_ObjectHideFlags: 0
