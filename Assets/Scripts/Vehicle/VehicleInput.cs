@@ -40,7 +40,10 @@ public class VehicleInput : MonoBehaviour
             torque = -1.0f;
 
         if (Input.GetKeyDown(KeyCode.Space))
-            m_player.ActiveVechicle.Fire();
+            m_player.ActiveVechicle.Fire(WeaponType.Simple);
+
+        if (Input.GetKeyDown(KeyCode.RightControl))
+            m_player.ActiveVechicle.Fire(WeaponType.Rocket);
 
         m_player.ActiveVechicle.ThrustControl = thrust;
         m_player.ActiveVechicle.TorqueControl = torque;

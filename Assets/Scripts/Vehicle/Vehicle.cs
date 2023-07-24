@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using Mirror;
+using Mirror.SimpleWeb;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class Vehicle : Destructible
@@ -41,6 +42,8 @@ public class Vehicle : Destructible
 
     [SerializeField]
     private Turret m_Turret;
+
+    public Turret Turret => m_Turret;
 
 
     #region Public API
@@ -94,9 +97,16 @@ public class Vehicle : Destructible
         m_Rigid.AddTorque(-m_Rigid.angularVelocity * (m_Mobility / m_MaxAngularVelocity) * Time.fixedDeltaTime, ForceMode2D.Force);
     }
 
-    public void Fire()
+    public void Fire(WeaponType weaponType)
     {
-        m_Turret.CmdFire();
+        if ((weaponType == WeaponType.Simple))
+        {
+            m_Turret.CmdFire(weaponType);
+        }
+        if ((weaponType == WeaponType.Rocket))
+        {
+            m_Turret.CmdFire(weaponType);
+        }
     }
 
 }

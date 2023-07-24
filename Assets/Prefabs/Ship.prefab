@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 2224230769485475722}
   m_Layer: 0
   m_Name: Ship
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -213,8 +213,11 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  m_Projectile: {fileID: 2126210865705208180, guid: 8b26b89ffb9cfe3469894b29ebf2e45b, type: 3}
+  m_Projectile:
+  - {fileID: 2126210865705208180, guid: 8b26b89ffb9cfe3469894b29ebf2e45b, type: 3}
+  - {fileID: 2126210865705208180, guid: 364d5b9d94ec27f4f870f57af6d5aa0f, type: 3}
   m_FireRate: 0.3
+  m_ammo: 0
 --- !u!114 &5780573084267050870
 MonoBehaviour:
   m_ObjectHideFlags: 0
