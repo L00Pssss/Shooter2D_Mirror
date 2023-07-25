@@ -5,8 +5,9 @@ public class Player : NetworkBehaviour
 {
     [SerializeField] 
     private Vehicle[] m_SpaceVehiclePrefab;
-    [SerializeField]
-    public Transform[] spawnPoints; // Массив точек спавна
+
+    private Transform[] spawnPoints; // Массив точек спавна
+
     public Vehicle ActiveVechicle {get;set;}
 
     [SyncVar]
@@ -85,7 +86,7 @@ public class Player : NetworkBehaviour
                 GameObject playerVehicle = Instantiate(vehicle, spawnPoint.position, Quaternion.identity);
                 NetworkServer.Spawn(playerVehicle, netIdentity.connectionToClient);
 
-                ActiveVechicle = playerVehicle.GetComponent<Vehicle>();
+                ActiveVechicle = playerVehicle.GetComponentInParent<Vehicle>();
                 ActiveVechicle.Owner = netIdentity;
 
                 RpcSetVehicle(ActiveVechicle.netIdentity); // передача клиенту. 

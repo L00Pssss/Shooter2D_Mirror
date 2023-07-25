@@ -124,7 +124,6 @@ GameObject:
   - component: {fileID: 500743478017373209}
   - component: {fileID: 8673340008205983515}
   - component: {fileID: 3229830352732463464}
-  - component: {fileID: 8576963702925279620}
   - component: {fileID: 5780573084267050870}
   - component: {fileID: 1992617010811476889}
   - component: {fileID: 5603132466179189293}
@@ -149,6 +148,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1211332642657404942}
+  - {fileID: 3083609573581610861}
   - {fileID: 33393924640094250}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -194,30 +194,10 @@ MonoBehaviour:
   Owner: {fileID: 0}
   m_Mass: 3
   m_Thrust: 5000
-  m_Mobility: 2500
+  m_Mobility: 1000
   m_MaxLinearVelocity: 30
   m_MaxAngularVelocity: 300
-  m_Turret: {fileID: 8576963702925279620}
---- !u!114 &8576963702925279620
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2199312891278715385}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e1d6f114c7261142a6aeb9dbd9ffc1e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncDirection: 0
-  syncMode: 0
-  syncInterval: 0
-  m_Projectile:
-  - {fileID: 2126210865705208180, guid: 8b26b89ffb9cfe3469894b29ebf2e45b, type: 3}
-  - {fileID: 2126210865705208180, guid: 364d5b9d94ec27f4f870f57af6d5aa0f, type: 3}
-  m_FireRate: 0.3
-  m_ammo: 0
+  m_Turret: {fileID: 580919890873681772}
 --- !u!114 &5780573084267050870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -310,6 +290,59 @@ MonoBehaviour:
   syncAngularVelocity: 1
   clearAngularVelocity: 0
   angularVelocitySensitivity: 0.1
+--- !u!1 &3628306286404198332
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3083609573581610861}
+  - component: {fileID: 580919890873681772}
+  m_Layer: 0
+  m_Name: Turret
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3083609573581610861
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3628306286404198332}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.37, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 500743478017373209}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &580919890873681772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3628306286404198332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e1d6f114c7261142a6aeb9dbd9ffc1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  m_Projectile:
+  - {fileID: 2126210865705208180, guid: 8b26b89ffb9cfe3469894b29ebf2e45b, type: 3}
+  - {fileID: 2126210865705208180, guid: 364d5b9d94ec27f4f870f57af6d5aa0f, type: 3}
+  m_FireRate: 0.3
+  m_ammo: 0
+  turretVisualMode: {fileID: 500743478017373209}
 --- !u!1 &3653794271447780315
 GameObject:
   m_ObjectHideFlags: 0
@@ -343,7 +376,7 @@ RectTransform:
   m_Children:
   - {fileID: 6608422541348357332}
   m_Father: {fileID: 500743478017373209}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

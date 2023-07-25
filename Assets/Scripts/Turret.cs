@@ -36,6 +36,35 @@ public class Turret : NetworkBehaviour
     }
 
     [Command]
+    public void CmdRotateTurretTowardsMouse(float angle)
+    {
+        SVRotateTurretTowardsMouse(angle);
+    }
+
+    [SerializeField] private Transform turretVisualMode;
+
+    public Transform TurretVisualMode => turretVisualMode;
+
+    [Server]
+    public void SVRotateTurretTowardsMouse(float angle)
+    {
+        if (turretVisualMode != null)
+        {
+            turretVisualMode.transform.rotation = Quaternion.Euler(0, 0, angle - 90f);
+            RpcRotateTurretTowardsMouse(angle);
+        }
+    }
+
+    [ClientRpc]
+    public void RpcRotateTurretTowardsMouse(float angle)
+    {
+        if (isClient)
+        {
+            turretVisualMode.transform.rotation = Quaternion.Euler(0, 0, angle - 90f);
+        }
+    }
+
+    [Command]
     public void CmdFire(WeaponType weaponType)
     {
         if (weaponType == WeaponType.Simple || (weaponType == WeaponType.Rocket && CanFire))

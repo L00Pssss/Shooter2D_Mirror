@@ -5,6 +5,8 @@ public class VehicleInput : MonoBehaviour
 {
     private Player m_player;
 
+    [SerializeField] private float sensitivity = 1.0f;
+
     private void Awake()
     {
         m_player = GetComponent<Player>();
@@ -15,6 +17,7 @@ public class VehicleInput : MonoBehaviour
         if (m_player.isOwned && m_player.isLocalPlayer)
         {
             UpdateControlKeyboard();
+            UpdateControlMouse();
         }
     }
 
@@ -47,6 +50,22 @@ public class VehicleInput : MonoBehaviour
 
         m_player.ActiveVechicle.ThrustControl = thrust;
         m_player.ActiveVechicle.TorqueControl = torque;
+    }
+
+
+    private void UpdateControlMouse()
+    {
+        if (m_player.ActiveVechicle == null) return;
+
+        // Получаем позицию мыши в экранных координатах
+        Vector3 mousePositionScreen = Input.mousePosition;
+
+        // Получаем угол поворота турели на основе позиции мыши
+        Vector3 directionToMouse = mousePositionScreen - Camera.main.WorldToScreenPoint(m_player.ActiveVechicle.Turret.TurretVisualMode.position);
+        float angle = Mathf.Atan2(directionToMouse.y, directionToMouse.x) * Mathf.Rad2Deg;
+
+        // Отправляем запрос на поворот турели на сервер
+        m_player.ActiveVechicle.Turret.CmdRotateTurretTowardsMouse(angle);
     }
 
 }
