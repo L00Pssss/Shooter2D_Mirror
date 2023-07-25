@@ -4,20 +4,20 @@ using UnityEngine.Events;
 
 public class Destructible : NetworkBehaviour
 {
-    public UnityAction<int> HitPointChange;
+    public UnityAction<float> HitPointChange;
 
-    public int MaxHitPoint => m_MaxhitPoint;
+    public float MaxHitPoint => m_MaxhitPoint;
     [SerializeField] 
-    private int m_MaxhitPoint;
+    private float m_MaxhitPoint;
 
     [SerializeField] 
     private GameObject m_DestroySfx;
 
-    public int HitPoint => currentHitPoint;
-    private int currentHitPoint;
+    public float HitPoint => currentHitPoint;
+    private float currentHitPoint;
 
     [SyncVar(hook =nameof(ChangeHitPoint))]
-    private int syncCurrentHitPoint;
+    private float syncCurrentHitPoint;
 
     public override void OnStartServer()
     {
@@ -27,7 +27,7 @@ public class Destructible : NetworkBehaviour
         currentHitPoint = m_MaxhitPoint;
     }
     [Server]
-    public void SvApplyDamage(int damage)
+    public void SvApplyDamage(float damage)
     {
         syncCurrentHitPoint -= damage;
 
@@ -43,7 +43,7 @@ public class Destructible : NetworkBehaviour
             Destroy(gameObject);
         }
     }
-    private void ChangeHitPoint(int oldValue, int newValue)
+    private void ChangeHitPoint(float oldValue, float newValue)
     {
         currentHitPoint = newValue;
         HitPointChange?.Invoke(newValue);

@@ -90,7 +90,8 @@ public class Turret : NetworkBehaviour
             }
             else if (weaponType == WeaponType.Rocket)
             {
-                FireProjectile(m_Projectile[1]);
+                m_ammo--;
+                FireProjectile(m_Projectile[1]);              
                 RpsFire(weaponType);
             }
            

@@ -128,6 +128,7 @@ GameObject:
   - component: {fileID: 1992617010811476889}
   - component: {fileID: 5603132466179189293}
   - component: {fileID: 2224230769485475722}
+  - component: {fileID: 1750972419696617690}
   m_Layer: 0
   m_Name: Ship
   m_TagString: Player
@@ -290,6 +291,22 @@ MonoBehaviour:
   syncAngularVelocity: 1
   clearAngularVelocity: 0
   angularVelocitySensitivity: 0.1
+--- !u!58 &1750972419696617690
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2199312891278715385}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &3628306286404198332
 GameObject:
   m_ObjectHideFlags: 0

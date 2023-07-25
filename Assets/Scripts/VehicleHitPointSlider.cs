@@ -28,7 +28,7 @@ public class VehicleHitPointSlider : MonoBehaviour
     {
         m_Vehicle.HitPointChange -= OnHitPointChange;
     }
-    private void OnHitPointChange(int hitPoint)
+    private void OnHitPointChange(float hitPoint)
     {
         m_Slider.value = hitPoint;
     }

@@ -9,6 +9,7 @@ public class BonusRocket : NetworkBehaviour
     [ServerCallback]
     private void OnTriggerEnter2D(Collider2D collision)
     {
+    //    Debug.Log("Bonus");
         Vehicle vehicle = collision.gameObject.GetComponentInParent<Vehicle>();
 
         if (vehicle != null)
